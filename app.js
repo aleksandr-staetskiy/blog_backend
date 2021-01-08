@@ -1,15 +1,15 @@
 const express = require('express');
 const app = express()
 const mongoose = require('mongoose')
-const bodyParsesr = require('bodyParsesr')
+const bodyParser = require('body-parser')
 require('dotenv/config')
 
 const PORT = 5000
 
 const postRoutes = require('./routes/posts')
 
+app.use(bodyParser.json())
 app.use('/posts', postRoutes)
-app.use(bodyParsesr.json())
 
 app.get('/', (req, res) => {
     res.send('Server is up')
